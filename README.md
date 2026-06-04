@@ -116,6 +116,26 @@ ssh -T git@github-work      # Should show your work username
 
 ---
 
+### 3. **[GIT_USER_CONFIGURATION.md](./GIT_USER_CONFIGURATION.md)** — Set Username & Email Per Repo
+
+**Use this if:**
+- You want to remove your global git configuration
+- You need to set different usernames/emails for different accounts
+- You want to verify your git identity before committing
+- You're getting commits under the wrong email
+
+**Covers:**
+- Removing global user.name and user.email
+- Setting local configuration per repository
+- Verification commands and checklist
+- Complete workflow examples
+- Troubleshooting wrong author issues
+- Quick reference commands
+
+**Time commitment:** 10 minutes for setup, 1 minute per repo verification
+
+---
+
 ## 🔧 Common Tasks
 
 | Task                | Command                                                       |
