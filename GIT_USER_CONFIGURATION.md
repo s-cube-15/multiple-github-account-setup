@@ -5,6 +5,7 @@
 When managing multiple GitHub accounts, it's critical to set the correct `user.name` and `user.email` for each repository to avoid committing under the wrong identity.
 
 This guide shows you how to:
+
 - Remove global Git configuration
 - Set local username and email per repository
 - Verify your settings before committing
@@ -65,6 +66,7 @@ git config user.name "Your Full Name"
 **Replace** `"Your Full Name"` with your actual name.
 
 Examples:
+
 - `git config user.name "John Doe"`
 - `git config user.name "Sudhanshu Sabale"`
 
@@ -77,11 +79,13 @@ git config user.email "your-email@example.com"
 **Replace** `"your-email@example.com"` with your actual email.
 
 **For personal repos:**
+
 ```bash
 git config user.email "personal@gmail.com"
 ```
 
 **For work repos:**
+
 ```bash
 git config user.email "work@company.com"
 ```
@@ -110,21 +114,25 @@ core.bare=false
 ### Check Specific Values
 
 Check user name:
+
 ```bash
 git config user.name
 ```
 
 Expected output:
+
 ```
 Your Full Name
 ```
 
 Check user email:
+
 ```bash
 git config user.email
 ```
 
 Expected output:
+
 ```
 your-email@example.com
 ```
@@ -136,6 +144,7 @@ git config --local --list | grep user
 ```
 
 **Expected output:**
+
 ```
 user.name=Your Full Name
 user.email=your-email@example.com
@@ -166,6 +175,7 @@ git log -1 --pretty=format:"%an <%ae>"
 ```
 
 **Expected output:**
+
 ```
 Your Full Name <your-email@example.com>
 ```
@@ -179,6 +189,7 @@ git log -1
 ```
 
 **Expected output:**
+
 ```
 commit abc123def456...
 Author: Your Full Name <your-email@example.com>
@@ -244,24 +255,28 @@ git log -1 --pretty=format:"%an <%ae>"
 Before pushing any commits, verify:
 
 - [ ] Global `user.name` is unset
+
   ```bash
   git config --global user.name
   # Should return nothing or error
   ```
 
 - [ ] Global `user.email` is unset
+
   ```bash
   git config --global user.email
   # Should return nothing or error
   ```
 
 - [ ] Local `user.name` is set correctly
+
   ```bash
   git config user.name
   # Should show your name
   ```
 
 - [ ] Local `user.email` is set correctly
+
   ```bash
   git config user.email
   # Should show correct email for this repo
@@ -280,6 +295,7 @@ Before pushing any commits, verify:
 ### Issue: "Please Tell Me Who You Are"
 
 **Error message:**
+
 ```
 *** Please tell me who you are.
 
@@ -311,17 +327,20 @@ git config user.email "you@example.com"
 **Solution:**
 
 1. Check what's set globally:
+
    ```bash
    git config --global --list | grep user
    ```
 
 2. If global config exists, remove it:
+
    ```bash
    git config --global --unset user.name
    git config --global --unset user.email
    ```
 
 3. Set correct local config:
+
    ```bash
    git config user.name "Correct Name"
    git config user.email "correct@email.com"
@@ -358,43 +377,46 @@ git config user.email "email2@example.com"
 
 ## Quick Reference Commands
 
-| Task | Command |
-|------|---------|
-| Remove global name | `git config --global --unset user.name` |
-| Remove global email | `git config --global --unset user.email` |
-| View all global config | `git config --global --list` |
-| Set local name | `git config user.name "Your Name"` |
-| Set local email | `git config user.email "you@example.com"` |
-| View local name | `git config user.name` |
-| View local email | `git config user.email` |
-| View all local config | `git config --local --list` |
-| View last commit author | `git log -1 --pretty=format:"%an <%ae>"` |
-| View commit details | `git log -1` |
+| Task                    | Command                                   |
+| ----------------------- | ----------------------------------------- |
+| Remove global name      | `git config --global --unset user.name`   |
+| Remove global email     | `git config --global --unset user.email`  |
+| View all global config  | `git config --global --list`              |
+| Set local name          | `git config user.name "Your Name"`        |
+| Set local email         | `git config user.email "you@example.com"` |
+| View local name         | `git config user.name`                    |
+| View local email        | `git config user.email`                   |
+| View all local config   | `git config --local --list`               |
+| View last commit author | `git log -1 --pretty=format:"%an <%ae>"`  |
+| View commit details     | `git log -1`                              |
 
 ---
 
 ## File Locations
 
-| Config Level | Location | Command to View |
-|--------------|----------|-----------------|
-| Global | `~/.gitconfig` | `git config --global --list` |
-| Local (per repo) | `your-repo/.git/config` | `git config --local --list` |
+| Config Level     | Location                | Command to View              |
+| ---------------- | ----------------------- | ---------------------------- |
+| Global           | `~/.gitconfig`          | `git config --global --list` |
+| Local (per repo) | `your-repo/.git/config` | `git config --local --list`  |
 
 ### Manual Editing (Advanced)
 
 You can also edit files directly:
 
 **Global config:**
+
 ```bash
 notepad ~/.gitconfig
 ```
 
 **Local config:**
+
 ```bash
 notepad your-repo/.git/config
 ```
 
 Look for sections like:
+
 ```
 [user]
     name = Your Name
@@ -416,6 +438,7 @@ Look for sections like:
 ✅ **Use descriptive comments** in your commits if committing for both accounts in same day
 
 Example commit message:
+
 ```bash
 git commit -m "[personal] Updated project documentation"
 git commit -m "[work] Fixed production bug in auth module"
