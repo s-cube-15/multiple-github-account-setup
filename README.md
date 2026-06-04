@@ -14,7 +14,7 @@ This project provides guides and configurations for setting up **secure SSH-base
 ✅ **Separate SSH keys** — One key per GitHub account for security  
 ✅ **Easy account switching** — Use host aliases (`github-personal`, `github-work`)  
 ✅ **Per-repository configuration** — Set different user names/emails for each account  
-✅ **Comprehensive guides** — Step-by-step setup and troubleshooting docs  
+✅ **Comprehensive guides** — Step-by-step setup and troubleshooting docs
 
 ---
 
@@ -79,11 +79,13 @@ ssh -T git@github-work      # Should show your work username
 ### 1. **[COMPREHENSIVE_GIT_SSH_GUIDE.md](./COMPREHENSIVE_GIT_SSH_GUIDE.md)** — The Complete Reference
 
 **Use this if:**
+
 - You want detailed setup instructions with explanations
 - You're troubleshooting issues
 - You need to understand the full configuration
 
 **Covers:**
+
 - SSH key generation (Ed25519 keys recommended)
 - SSH config file setup with detailed explanations
 - Repository configuration for existing and new repos
@@ -98,11 +100,13 @@ ssh -T git@github-work      # Should show your work username
 ### 2. **[GIT_SSH_MIGRATION.md](./GIT_SSH_MIGRATION.md)** — Convert HTTPS to SSH
 
 **Use this if:**
+
 - You already have repositories cloned with HTTPS
 - You're getting "Please sign in" dialogs
 - You want to quickly switch a single repo to SSH
 
 **Covers:**
+
 - Why HTTPS causes sign-in popups
 - How to convert a repository from HTTPS → SSH
 - Setting local git identity per repository
@@ -114,16 +118,16 @@ ssh -T git@github-work      # Should show your work username
 
 ## 🔧 Common Tasks
 
-| Task | Command |
-|------|---------|
-| Check SSH config | `cat ~/.ssh/config` |
-| Test personal SSH | `ssh -T git@github-personal` |
-| Test work SSH | `ssh -T git@github-work` |
-| View repo remote | `git remote -v` |
-| Change to SSH | `git remote set-url origin git@github-personal:user/repo.git` |
-| Set local git name | `git config user.name "Your Name"` |
-| Set local git email | `git config user.email "you@example.com"` |
-| Verify local config | `git config --local --list` |
+| Task                | Command                                                       |
+| ------------------- | ------------------------------------------------------------- |
+| Check SSH config    | `cat ~/.ssh/config`                                           |
+| Test personal SSH   | `ssh -T git@github-personal`                                  |
+| Test work SSH       | `ssh -T git@github-work`                                      |
+| View repo remote    | `git remote -v`                                               |
+| Change to SSH       | `git remote set-url origin git@github-personal:user/repo.git` |
+| Set local git name  | `git config user.name "Your Name"`                            |
+| Set local git email | `git config user.email "you@example.com"`                     |
+| Verify local config | `git config --local --list`                                   |
 
 ---
 
@@ -164,6 +168,7 @@ git remote set-url origin git@github-personal:username/repo.git
 ### Issue: "Permission to username/repo.git denied"
 
 This usually means the SSH key isn't added to your GitHub account. Go to:
+
 - GitHub → Settings → SSH and GPG keys → Check if the key is listed
 
 For more troubleshooting, see [COMPREHENSIVE_GIT_SSH_GUIDE.md](./COMPREHENSIVE_GIT_SSH_GUIDE.md#troubleshooting).
@@ -211,12 +216,12 @@ git pull origin main
 
 ## 📍 File Locations (Quick Reference)
 
-| Item | Location |
-|------|----------|
-| Personal SSH key | `~/.ssh/id_personal` |
-| Work SSH key | `~/.ssh/id_work` |
-| SSH config file | `~/.ssh/config` |
-| Global git config | `~/.gitconfig` |
+| Item              | Location                |
+| ----------------- | ----------------------- |
+| Personal SSH key  | `~/.ssh/id_personal`    |
+| Work SSH key      | `~/.ssh/id_work`        |
+| SSH config file   | `~/.ssh/config`         |
+| Global git config | `~/.gitconfig`          |
 | Local repo config | `your-repo/.git/config` |
 
 ---
